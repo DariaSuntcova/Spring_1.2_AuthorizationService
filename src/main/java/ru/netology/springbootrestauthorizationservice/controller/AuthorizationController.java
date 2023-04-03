@@ -2,6 +2,7 @@ package ru.netology.springbootrestauthorizationservice.controller;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import ru.netology.springbootrestauthorizationservice.exception.InvalidCredentials;
 import ru.netology.springbootrestauthorizationservice.exception.UnauthorizedUser;
@@ -20,7 +21,8 @@ public class AuthorizationController {
     }
 
     @GetMapping("/authorize")
-    public List<Authorities> getAuthorities(@RequestParam("user") String user, @RequestParam("password") String password) {
+    public List<Authorities> getAuthorities(@RequestParam("user") @Validated String user,
+                                            @RequestParam("password") @Validated String password) {
         return service.getAuthorities(user, password);
     }
 

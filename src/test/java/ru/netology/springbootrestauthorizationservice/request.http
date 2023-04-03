@@ -1,0 +1,9 @@
+// 200 OK
+GET http://localhost:8080/authorize?user=Anna&password=123
+###
+// 400 Bad Request
+GET http://localhost:8080/authorize?user=Petr&password=123
+###
+// 401 Unauthorized
+GET http://localhost:8080/authorize?user=Petr&password=456
+
