@@ -1,0 +1,7 @@
+services:
+  app:
+    image: "authServ"
+    container_name: "authServ_1"
+    build: ./
+    ports:
+      - 8080:8080
